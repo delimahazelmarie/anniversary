@@ -38,7 +38,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             z-index: 5;
         }
-        .slideshow-container {
+        .image-container {
             position: relative;
             max-width: 600px;
             width: 90%;
@@ -50,13 +50,7 @@
             z-index: 5;
             margin-bottom: 25px;
         }
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
-        .slide img {
+        .image-container img {
             width: 100%;
             height: 85%;
             object-fit: cover;
@@ -66,23 +60,8 @@
             color: #2d3436;
             font-weight: bold;
             background: #fff;
+            text-align: center;
         }
-        .btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 50%;
-            z-index: 10;
-        }
-        .btn:hover { background: rgba(0,0,0,0.8); }
-        .prev { left: 10px; }
-        .next { right: 10px; }
         
         /* Final Excitement Button */
         .excitement-btn {
@@ -172,7 +151,7 @@
 
     <!-- Initial Interactive Surprise Screen -->
     <div id="surprise-screen">
-        <h1 style="margin-bottom: 30px;">Hey Arseneth jean jarantilla, I have a question... 🤔</h1>
+        <h1 style="margin-bottom: 30px;">Lovey, I have a question... 🤔</h1>
         <button class="surprise-btn" onclick="triggerSurprise()">Click here for a surprise! ✨</button>
     </div>
 
@@ -180,24 +159,13 @@
     <div id="main-site" class="main-content">
         <h1>Happy Anniversary, Arseneth jean jarantilla! ❤️</h1>
         <div class="love-message">
-            "I just want you to know that I really really like you not just that must I love you the most!"
+            "I just want you to know that I really really like you not just that but I love you the most!"
         </div>
 
-        <div class="slideshow-container">
-            <!-- Slide 1 -->
-            <div class="slide">
-                <img src="716170012_2575700679518620_2329255219325713437_n.jpg" alt="Our memories">
-                <div class="caption">Where it all began... 🥰</div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="slide">
-                <img src="bc70d485-2c9b-49f5-bb41-11d1abac1ad6.jpeg" alt="Our memories">
-                <div class="caption">One of my absolute favorite days with you. 📸</div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <button class="btn prev" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="btn next" onclick="plusSlides(1)">&#10095;</button>
+        <!-- Single Photo Container -->
+        <div class="image-container">
+            <img src="bc70d485-2c9b-49f5-bb41-11d1abac1ad6.jpeg" alt="Our beautiful memory">
+            <div class="caption">One of my absolute favorite days with you. 📸</div>
         </div>
 
         <!-- The Hot & Exciting Final Button -->
@@ -215,33 +183,12 @@
             document.getElementById('main-site').style.display = 'flex';
             
             // Start features
-            showSlides(slideIndex);
-            setInterval(() => { plusSlides(1); }, 4000);
             createPetals();
         }
 
         // Huling Hirit Dynamic Alert Box
         function triggerExcitement() {
             alert("at dahil diyan kakainin kita ngayon! warak ka sakin. 🐯🔥🫣");
-        }
-
-        // Slideshow Logic
-        let slideIndex = 1;
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            if (slides.length === 0 || document.getElementById('main-site').style.display !== 'flex') return;
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slides[slideIndex-1].style.display = "block";  
         }
 
         // Flower Petals Generator
@@ -251,7 +198,6 @@
                 let petal = document.createElement("div");
                 petal.className = "petal";
                 
-                // Random properties for unique cute look
                 let size = Math.random() * 15 + 10;
                 petal.style.width = size + "px";
                 petal.style.height = size + "px";
