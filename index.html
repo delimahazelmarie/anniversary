@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary! ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #d63031;
+            margin-bottom: 5px;
+            text-align: center;
+            padding: 0 10px;
+            z-index: 5;
+        }
+        .love-message {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            max-width: 500px;
+            text-align: center;
+            line-height: 1.5;
+            margin: 10px 20px 20px 20px;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            z-index: 5;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            height: 400px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 5;
+            margin-bottom: 25px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .slide img {
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+        }
+        .caption {
+            padding: 12px;
+            color: #2d3436;
+            font-weight: bold;
+            background: #fff;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .btn:hover { background: rgba(0,0,0,0.8); }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        
+        /* Final Excitement Button */
+        .excitement-btn {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
+            transition: transform 0.2s;
+            z-index: 5;
+            margin-bottom: 30px;
+        }
+        .excitement-btn:hover {
+            transform: scale(1.05);
+            background-color: #ff6b81;
+        }
+
+        /* Surprise Button Overlays */
+        #surprise-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffe6e6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .surprise-btn {
+            background-color: #d63031;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+            transition: transform 0.2s;
+        }
+        .surprise-btn:hover {
+            transform: scale(1.1);
+        }
+        .main-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            animation: fadeIn 1.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Falling Flower Petals CSS */
+        .petal {
+            position: absolute;
+            background-color: #ff7675;
+            border-radius: 150px 0px 150px 150px;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Initial Interactive Surprise Screen -->
+    <div id="surprise-screen">
+        <h1 style="margin-bottom: 30px;">Hey Arseneth jean jarantilla, I have a question... 🤔</h1>
+        <button class="surprise-btn" onclick="triggerSurprise()">Click here for a surprise! ✨</button>
+    </div>
+
+    <!-- Hidden Website Content until clicked -->
+    <div id="main-site" class="main-content">
+        <h1>Happy Anniversary, Arseneth jean jarantilla! ❤️</h1>
+        <div class="love-message">
+            "I just want you to know that I really really like you not just that must I love you the most!"
+        </div>
+
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="photo1.jpg" alt="Our memories">
+                <div class="caption">Where it all began... 🥰</div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="photo2.jpg" alt="Our memories">
+                <div class="caption">One of my absolute favorite days with you. 📸</div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="photo3.jpg" alt="Our memories">
+                <div class="caption">Loving you more and more every single day. 🌹</div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button class="btn prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="btn next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+
+        <!-- The Hot & Exciting Final Button -->
+        <button class="excitement-btn" onclick="triggerExcitement()">click here for excitement part 🤫</button>
+    </div>
+
+    <script>
+        // Funny sequential click surprises
+        function triggerSurprise() {
+            alert("Warning: Extreme levels of cuteness ahead! Proceed at your own risk. ⚠️");
+            alert("Wait... bago ko ipakita, agree ka ba na ikaw ang pinakamaganda sa buong mundo? (Click OK kung Yes, o OK kung Sobrang Yes) 😂");
+            alert("Hehe, perfect choice! Loading your special page now... 👑❤️");
+            
+            document.getElementById('surprise-screen').style.display = 'none';
+            document.getElementById('main-site').style.display = 'flex';
+            
+            // Start features
+            showSlides(slideIndex);
+            setInterval(() => { plusSlides(1); }, 4000);
+            createPetals();
+        }
+
+        // Huling Hirit Dynamic Alert Box
+        function triggerExcitement() {
+            alert("at dahil diyan kakainin kita ngayon! warak ka sakin. 🐯🔥🫣");
+        }
+
+        // Slideshow Logic
+        let slideIndex = 1;
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (slides.length === 0 || document.getElementById('main-site').style.display !== 'flex') return;
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+
+        // Flower Petals Generator
+        function createPetals() {
+            const body = document.body;
+            for (let i = 0; i < 25; i++) {
+                let petal = document.createElement("div");
+                petal.className = "petal";
+                
+                // Random properties for unique cute look
+                let size = Math.random() * 15 + 10;
+                petal.style.width = size + "px";
+                petal.style.height = size + "px";
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.animationDuration = Math.random() * 3 + 4 + "s";
+                petal.style.animationDelay = Math.random() * 5 + "s";
+                
+                body.appendChild(petal);
+            }
+        }
+    </script>
+</body>
+</html>
